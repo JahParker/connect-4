@@ -1,5 +1,3 @@
-import styles from './App.module.css'
-import React from 'react'
 import GridSquare from './Components/GridSquare'
 
 //Will check for winner and if board is full
@@ -18,9 +16,9 @@ function App() {
     <>
       <div className="App">
       <header className="App-header">
-        <h1 className="App-title">Tetris Redux</h1>
+        <h1 className="App-title">Connect 4</h1>
       </header>
-      <GridSquare color="1" />
+      <GridSquare/>
     </div>
     </>
   )

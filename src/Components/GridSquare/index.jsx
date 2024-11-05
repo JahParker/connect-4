@@ -1,6 +1,10 @@
-// Creates a square for the board grid
+import style from './GridSquare.module.css'
 
-export default function GridSquare() {
-    const classes = `grid-square`
-    return <div className={classes} />
-}
+// Creates a square for the board grid
+const GridSquare = () => {
+  return (
+    <div className={style["grid-square"]} />
+  )
+};
+
+export default GridSquare;

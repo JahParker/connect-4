@@ -1,0 +1,9 @@
+/* Grid Square */
+.grid-square {
+  border-style: solid;
+  width: var(--tile-size);
+  height: var(--tile-size);
+  border-width: var(--border-width);
+  border-color: black;
+  background-color: gray;
+}

@@ -1,15 +1,3 @@
-.App-header {
-  background-color: #282c34;
-  min-height: 10vh;
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 :root {
 
   /* Square Colors:  background colors for the squares.*/
@@ -63,13 +51,3 @@
 .color-7 {
   background-color: var(--color-7);
 }*/
-
-/* Grid Square */
-.grid-square {
-  border-style: solid;
-  width: var(--tile-size);
-  height: var(--tile-size);
-  border-width: var(--border-width);
-  border-color: black;
-  background-color: gray;
-}

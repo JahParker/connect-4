@@ -1,4 +1,5 @@
-import GridSquare from './Components/GridSquare'
+import style from './App.module.css';
+import Grid from './Components/Grid';
 
 //Will check for winner and if board is full
 function checkWinner() {
@@ -10,18 +11,14 @@ function takeTurn () {
 
 }
 
-function App() {
-
+const App = () => {
   return (
-    <>
-      <div className="App">
-      <header className="App-header">
-        <h1 className="App-title">Connect 4</h1>
-      </header>
-      <GridSquare/>
+    <div className={style.app}>
+      <div className={style["app-header"]}></div>
+      <h1 className={style["app-title"]}>Connect 4</h1>
+      <Grid />
     </div>
-    </>
   )
-}
+};
 
-export default App
+export default App;

@@ -1,6 +1,6 @@
 import style from './Grid.module.css';
 import GridSquare from "../GridSquare";
-import ButtonRow from './Components/ButtonRow';
+import ButtonRow from "../ButtonRow/index"
 
 const ROWS = 6;
 const COLS = 7;

@@ -1,0 +1,5 @@
+.button-row {
+    display: flex; /* Align the buttons horizontally in a row */
+    justify-content: center; /* Center the buttons horizontally within the row */
+    gap: 10px; /* Space between buttons */
+  }

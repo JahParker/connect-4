@@ -11,36 +11,53 @@ const App = () => {
   const [player, setPlayer] = useState('r');
 
   // Takes the players turn by adding piece into chosen slot and updating 2d array for check winner.
-  function dropToken(colIndex) {
+  function dropToken(col) {
+
     // Column full
-    if (board[0][colIndex] == 'r' || board[0][colIndex] == 'y') {
+    if (board[0][col] !== null) {
       console.log("Column full. Please choose empty position");
     }
 
     // Checks the column, bottom to top, if there is an empty space for a token
-    for (let i = ROWS - 1; i >= 0; i--) {
-      if (board[i][colIndex] === null) {
+    for (let row = ROWS - 1; row >= 0; row--) {
+      if (board[row][col] === null) {
         const newBoard = board.map((row) => [...row]); // Deep copy the board
+
         if (player === 'r') {
-          newBoard[i][colIndex] = 'r';
+          newBoard[row][col] = 'r';
           setPlayer('y');
         } else {
-          newBoard[i][colIndex] = 'y';
-          setPlayer('r')
+          newBoard[row][col] = 'y';
+          setPlayer('r');
         }
-        console.log(`Token dropped at row ${i}, column ${colIndex} with the color ${newBoard[i][colIndex]}`)
+        console.log(`Token dropped at row ${row}, column ${col} with the color ${newBoard[row][col]}`)
         setBoard(newBoard);
         break;
       }
+
+      // checkWinner(row, col);
+
     }
   }
 
    //Will check for winner and if board is full
-  /*function checkWinner(position) {
-    checkVertical();
-    checkHorizontal();
-    checkDiagonal();
-  }*/
+  // function checkWinner(row, col) {
+  //   checkVertical(row,col);
+    // checkHorizontal();
+    // checkDiagonal();
+  // }
+
+  // function checkVertical(row, col) {
+  //   let left = col; // # of spaces left of the token
+  //   let right = 3 - left; // Leftover spaces to check
+
+    // Loop left, if token not the same as current player, return false
+    // Loop right, if token not the same as current player, return false
+
+  //   return true
+  // }
+
+  
  
   return (
     <div className={style.app}>

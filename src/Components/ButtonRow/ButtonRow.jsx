@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import style from './ButtonRow.module.css'
-import ColumnButton from '../ColumnButton';
+import ColumnButton from '../ColumnButton/ColumnButton';
 const ButtonRow = ({ cols, onColumnClick }) => {
     return (
         <div className={style["button-row"]}>

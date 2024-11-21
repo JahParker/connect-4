@@ -1,9 +1,17 @@
 /* Grid Square */
-.grid-square {
+.grid-square, .red, .yellow {
   border-style: solid;
   width: var(--tile-size);
   height: var(--tile-size);
   border-width: var(--border-width);
   border-color: black;
   background-color: gray;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
 }

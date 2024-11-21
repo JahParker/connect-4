@@ -11,7 +11,7 @@ const Grid = ({ board, onColumnClick }) => {
         {board.map((row, rowIndex) => (
           <div key={rowIndex} className={style.row}>
             {row.map((cell, colIndex) => (
-              <GridSquare key={colIndex} />
+              <GridSquare key={colIndex} color={cell}/>
             ))}
           </div>
         ))}

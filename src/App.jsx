@@ -41,9 +41,7 @@ const App = () => {
     checkHorizontal();
     checkDiagonal();
   }*/
-
-  
-  
+ 
   return (
     <div className={style.app}>
       <div className={style["app-header"]}></div>

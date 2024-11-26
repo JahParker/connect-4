@@ -32,31 +32,67 @@ const App = () => {
         }
         console.log(`Token dropped at row ${row}, column ${col} with the color ${newBoard[row][col]}`)
         setBoard(newBoard);
+        checkWinner(row, col);
         break;
       }
-
-      // checkWinner(row, col);
-
     }
   }
 
    //Will check for winner and if board is full
-  // function checkWinner(row, col) {
-  //   checkVertical(row,col);
-    // checkHorizontal();
-    // checkDiagonal();
-  // }
+  function checkWinner(row, col) {
+    if (checkVertical(row,col)) console.log('Winner');
+    if (checkHorizontal(row,col)) console.log('Winner');
+    if (checkDiagonal(row,col)) console.log('Winner');
+  }
 
-  // function checkVertical(row, col) {
-  //   let left = col; // # of spaces left of the token
-  //   let right = 3 - left; // Leftover spaces to check
+  function checkVertical(row, col) {
+    if (player === board[row+1][col] 
+      && player === board[row+2][col]
+      && player === board[row+3][col]) return true
+  }
 
+  function checkHorizontal(row, col) {
+    let leftSpaces = col; // # of spaces left of the token
+
+    // console.log(player);
+    // console.log(board[row][col-3]);
+    // console.log(board[row][col-2]);
+    // console.log(board[row][col-1]);
+    // console.log(board[row][col+1]);
+    // console.log(board[row][col+2]);
+    // console.log(board[row][col+3]);
+
+    // Alternatively
     // Loop left, if token not the same as current player, return false
     // Loop right, if token not the same as current player, return false
 
-  //   return true
-  // }
+    switch (leftSpaces) {
+      case 0:
+        if (player === board[row][col+1] 
+            && player === board[row][col+2]
+            && player === board[row][col+3]) return true
+        break;
+      case 1:
+        if (player === board[row][col-1] 
+          && player === board[row][col+1]
+          && player === board[row][col+2]) return true
+        break;
+      case 2:
+        if (player === board[row][col-2] 
+          && player === board[row][col-1]
+          && player === board[row][col+1]) return true
+        break;
+      default:
+        if (player === board[row][col-3] 
+          && player === board[row][col-2]
+          && player === board[row][col-1]) return true
+        break;
+    }
+  }
 
+  function checkDiagonal() {
+    
+  }
   
  
   return (

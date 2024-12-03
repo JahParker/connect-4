@@ -1,9 +1,15 @@
 .column-button {
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 30px solid rgb(0, 55, 254); 
-    cursor: pointer;
-    border-radius: 0; /* Remove default button border radius */
-  }
+  width: 0; /* Set width and height to 0 to form a pure triangle */
+  height: 0;
+  border-left: 20px solid transparent; /* Transparent left side */
+  border-right: 20px solid transparent; /* Transparent right side */
+  border-top: 40px solid #ededed; /* Blue downward triangle (the visible part) */
+  cursor: pointer; /* Pointer cursor to indicate it's clickable */
+  display: block; /* Block element to ensure it is properly clickable */
+  margin: 0 auto; /* Center the triangle horizontally */
+}
+
+.button{
+  background-color: transparent;
+}
+

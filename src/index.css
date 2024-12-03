@@ -16,10 +16,24 @@
   --tile-size: 20px for example will set size of the grid squares. */
   --cols: 7;
   --rows: 6;
-  --tile-size: 50px;
+  --tile-size: 70px;
   --border-width: 3px;
 }
 
+body {
+  background-color: blue;
+}
+
+.white-text {
+  color: white;
+  text-align: center;
+  min-height: 10vh;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 
 /* I believe this can be utilized for future tyle styling properties 
@@ -51,3 +65,21 @@
 .color-7 {
   background-color: var(--color-7);
 }*/
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  cursor: pointer; /* Pointer cursor */
+  font-size: 16px; /* Adjust font size */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+

@@ -1,3 +1,16 @@
 .row {
-  display: flex;
+    display: grid;
+    grid-template-columns: repeat(7, var(--tile-size)); /* 7 columns per row */
+    grid-gap: 5px; /* Space between cells in a row */
+  }
+
+.grid {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, var(--tile-size)); /* Rows based on tile size */
+  grid-gap: 7px; /* Space between rows */
+  width: calc(7 * var(--tile-size) + 11 * 5px); /* Adjust for 7 columns + gaps */
+  background-color: #ffffff; /* Optional background color */
+  border-radius: 10px; /* Rounded edges for the board */
+  padding: 10px; /* Padding inside the grid */
+  box-sizing: border-box; /* Include border/padding in dimensions */
 }

@@ -12,7 +12,6 @@ const ButtonRow = ({ cols, onColumnClick }) => {
                         colIndex={colIndex} // Correctly pass colIndex
                         onColumnClick={onColumnClick} // Pass the function reference
                     >
-                        Button {colIndex + 1} {/* Display index to debug */}
                     </ColumnButton>
                 ))}
         </div>

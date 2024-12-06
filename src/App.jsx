@@ -1,6 +1,10 @@
 import style from './App.module.css';
 import Grid from './Components/Grid/Grid';
 import { useState } from 'react';
+import {Link} from "react-router-dom"
+import './index.css'
+import Circle from './assets/Circle'
+
 
 const ROWS = 6;
 const COLUMNS = 7;
@@ -9,7 +13,7 @@ const App = () => {
   // State for the board (2D array)
   const [board, setBoard] = useState(Array(ROWS).fill(Array(COLUMNS).fill(null)));
   const [player, setPlayer] = useState('r');
-
+ 
   // Takes the players turn by adding piece into chosen slot and updating 2d array for check winner.
   function dropToken(col) {
 
@@ -21,6 +25,7 @@ const App = () => {
     // Checks the column, bottom to top, if there is an empty space for a token
     for (let row = ROWS - 1; row >= 0; row--) {
       if (board[row][col] === null) {
+
         const newBoard = board.map((row) => [...row]); // Deep copy the board
 
         if (player === 'r') {
@@ -31,6 +36,7 @@ const App = () => {
           setPlayer('r');
         }
         console.log(`Token dropped at row ${row}, column ${col} with the color ${newBoard[row][col]}`)
+
         setBoard(newBoard);
         checkWinner(row, col);
         break;
@@ -96,10 +102,20 @@ const App = () => {
   
  
   return (
-    <div className={style.app}>
-      <div className={style["app-header"]}></div>
-      <h1 className={style["app-title"]}>Connect 4</h1>
-      <Grid board={board} onColumnClick={dropToken} />
+    <div>
+      <div className={style["game-container"]}>
+        <Circle color="yellow" isActive={player === 'y'} size={150}/>
+        <div className={style.app}>
+          <div className={style["app-header"]}>Connect 4</div>
+          <Grid board={board} onColumnClick={dropToken} />
+        </div>
+        <Circle color="red" isActive={player === 'r'} size={150}/>
+      </div>
+    <Link to="/">
+      <button>
+        Return to start  
+      </button>
+    </Link>
     </div>
   )
 };

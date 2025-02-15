@@ -102,7 +102,12 @@ const App = () => {
   
  
   return (
-    <div>
+    <div style={{ backgroundColor: 'blue', width: '100vw', height: '100vh' }}>
+          <Link to="/">
+      <button>
+        Return to start  
+      </button>
+    </Link>
       <div className={style["game-container"]}>
         <Circle color="yellow" isActive={player === 'y'} size={150}/>
         <div className={style.app}>
@@ -111,11 +116,6 @@ const App = () => {
         </div>
         <Circle color="red" isActive={player === 'r'} size={150}/>
       </div>
-    <Link to="/">
-      <button>
-        Return to start  
-      </button>
-    </Link>
     </div>
   )
 };

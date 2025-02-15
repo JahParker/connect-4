@@ -1,14 +1,15 @@
-import style from './ColumnButton.module.css'
 import PropTypes from 'prop-types';
-import Triangle from '../../assets/Triangle.jsx'
+//import Triangle from '../../assets/Triangle.jsx'
+import Triangle  from '../../assets/Tri.svg';
 
 // Creates a square for the board grid
-const ColumnButton = ({ colIndex, onColumnClick, children }) => {
+const ColumnButton = ({ colIndex, onColumnClick}) => {
   return (
-    <button
+    <button 
+      style={{ background: 'none', border: 'none', padding: 0 }}
       onClick={() => onColumnClick(colIndex)} // Pass onClick to ColumnButton
     >
-      {children || <Triangle color="yellow" size={50}/>}
+          <img src={Triangle} alt="Triangle Button" />
     </button>
   )
 };

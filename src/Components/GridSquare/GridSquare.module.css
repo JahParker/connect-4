@@ -4,16 +4,16 @@
   height: var(--tile-size);
   border-radius: 50%; /* Ensures it's a circle */
   border: 2px solid rgb(255, 255, 255); /* Adds visible black border */
-  background-color: blue;
+  background-color: #DCEDFF;
   box-sizing: border-box; /* Includes border in the dimensions */
 }
 
 .red {
-  background-color: red;
+  background-color: #FA7B97;
 }
 
 .yellow {
-  background-color: yellow;
+  background-color: #FFEC9D;
 }
 .circle {
   width: 100%; /* Circle fills grid cell */

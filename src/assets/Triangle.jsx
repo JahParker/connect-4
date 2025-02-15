@@ -4,12 +4,12 @@ const Triangle = ({ color = "black", size = 24 }) => (
   <svg
     width={size}
     height={size}
-    viewBox="0 0 24 24"
+    viewBox="0 0 25 25"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <polygon
-      points="12,22 22,2 2,2" // Adjusted points for an upside-down triangle
+      points="12,22 26,2 -2,2" // Adjusted points for a wider base
       fill={color}
     />
   </svg>

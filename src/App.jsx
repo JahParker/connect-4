@@ -15,40 +15,99 @@ const App = () => {
   const [player, setPlayer] = useState('r');
  
   // Takes the players turn by adding piece into chosen slot and updating 2d array for check winner.
-  function dropToken(colIndex) {
+  function dropToken(col) {
+
     // Column full
-    if (board[0][colIndex] == 'r' || board[0][colIndex] == 'y') {
+    if (board[0][col] !== null) {
       console.log("Column full. Please choose empty position");
     }
 
     // Checks the column, bottom to top, if there is an empty space for a token
-    for (let i = ROWS - 1; i >= 0; i--) {
-      console.log('test');
-      if (board[i][colIndex] === null) {
+    for (let row = ROWS - 1; row >= 0; row--) {
+      if (board[row][col] === null) {
+
         const newBoard = board.map((row) => [...row]); // Deep copy the board
+
         if (player === 'r') {
-          newBoard[i][colIndex] = 'r';
+          newBoard[row][col] = 'r';
           setPlayer('y');
         } else {
-          newBoard[i][colIndex] = 'y';
-          setPlayer('r')
+          newBoard[row][col] = 'y';
+          setPlayer('r');
         }
-        console.log(`${player}Token dropped at row ${i}, column ${colIndex} with the color ${newBoard[i][colIndex]}`)
+        console.log(`Token dropped at row ${row}, column ${col} with the color ${newBoard[row][col]}`)
+
         setBoard(newBoard);
+        checkWinner(row, col);
         break;
       }
     }
   }
 
    //Will check for winner and if board is full
-  /*function checkWinner(position) {
-    checkVertical();
-    checkHorizontal();
-    checkDiagonal();
-  }*/
+  function checkWinner(row, col) {
+    if (checkVertical(row,col)) console.log('Winner');
+    if (checkHorizontal(row,col)) console.log('Winner');
+    if (checkDiagonal(row,col)) console.log('Winner');
+  }
+
+  function checkVertical(row, col) {
+    if (player === board[row+1][col] 
+      && player === board[row+2][col]
+      && player === board[row+3][col]) return true
+  }
+
+  function checkHorizontal(row, col) {
+    let leftSpaces = col; // # of spaces left of the token
+
+    // console.log(player);
+    // console.log(board[row][col-3]);
+    // console.log(board[row][col-2]);
+    // console.log(board[row][col-1]);
+    // console.log(board[row][col+1]);
+    // console.log(board[row][col+2]);
+    // console.log(board[row][col+3]);
+
+    // Alternatively
+    // Loop left, if token not the same as current player, return false
+    // Loop right, if token not the same as current player, return false
+
+    switch (leftSpaces) {
+      case 0:
+        if (player === board[row][col+1] 
+            && player === board[row][col+2]
+            && player === board[row][col+3]) return true
+        break;
+      case 1:
+        if (player === board[row][col-1] 
+          && player === board[row][col+1]
+          && player === board[row][col+2]) return true
+        break;
+      case 2:
+        if (player === board[row][col-2] 
+          && player === board[row][col-1]
+          && player === board[row][col+1]) return true
+        break;
+      default:
+        if (player === board[row][col-3] 
+          && player === board[row][col-2]
+          && player === board[row][col-1]) return true
+        break;
+    }
+  }
+
+  function checkDiagonal() {
+    
+  }
+  
  
   return (
-    <div>
+    <div style={{ backgroundColor: 'blue', width: '100vw', height: '100vh' }}>
+          <Link to="/">
+      <button>
+        Return to start  
+      </button>
+    </Link>
       <div className={style["game-container"]}>
         <Circle color="yellow" isActive={player === 'y'} size={150}/>
         <div className={style.app}>
@@ -57,11 +116,6 @@ const App = () => {
         </div>
         <Circle color="red" isActive={player === 'r'} size={150}/>
       </div>
-    <Link to="/">
-      <button>
-        Return to start  
-      </button>
-    </Link>
     </div>
   )
 };

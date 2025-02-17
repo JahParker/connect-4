@@ -1,0 +1,9 @@
+.startButton {
+    background-image: url('/src/assets/StartButton.png') ; /* Adjust this path */
+    background-color: transparent;
+    background-size: contain; /* Ensures the image fits the button */
+    background-repeat: no-repeat;
+    width: 35vw;
+    height: 30vh;
+    border: none;  /* Removes default border */
+    }
